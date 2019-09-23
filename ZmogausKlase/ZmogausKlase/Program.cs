@@ -46,6 +46,10 @@ namespace ZmogausKlase
             }
         }
 
+        /// <summary>
+        /// Rasoma informacija i faila
+        /// </summary>
+        /// <param name="path">kelias iki failo</param>
         private static void RasymasIFaila(string path)
         {
             string duomenys = Console.ReadLine();
