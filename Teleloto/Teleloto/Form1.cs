@@ -64,6 +64,8 @@ namespace Teleloto
             int i = 0;
             Random rng = new Random();
             List<int> IsridentiKamuoliukaiAuksiniui = new List<int>();
+            NuimtiSpalva();
+            KamuoliukaiIsridenti.Text = string.Empty;
             while (i < 45)
             {
                 int kamuoliukas = rng.Next(1, 76);
@@ -102,6 +104,19 @@ namespace Teleloto
                     item.BackColor = Color.Green;
                     break;
                 }
+            }
+        }
+
+        private void NuimtiSpalva()
+        {
+            TextBox[] bilietas = {M1, M2, M3, M4, M5,
+                                  J1, J2, J3, J4, J5,
+                                   R1, R2, R3, R4, R5,
+                                    G1, G2, G3, G4, G5,
+                                   Z1, Z2, Z3, Z4, Z5 };
+            foreach (var item in bilietas)
+            {
+                item.BackColor = Color.White;
             }
         }
     }
