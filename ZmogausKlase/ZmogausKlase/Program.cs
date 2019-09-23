@@ -33,8 +33,27 @@ namespace ZmogausKlase
                     zmones.Add(zmogus);
                 }
             }
-            Console.WriteLine(zmones.First().Vardas + " " + zmones.First().Pavarde +
-                " " + zmones.First().GimimoDiena + " " + zmones.First().Lytis);
+            IsvedamasFailas(zmones);
+            RasymasIFaila(path);
+        }
+
+        private static void IsvedamasFailas(List<Zmogus> zmog)
+        {
+            foreach (Zmogus zmogus in zmog)
+            {
+                Console.WriteLine(zmogus.Vardas + " " + zmogus.Pavarde +
+                " " + zmogus.GimimoDiena.ToShortDateString() + " " + zmogus.Lytis);
+            }
+        }
+
+        private static void RasymasIFaila(string path)
+        {
+            string duomenys = Console.ReadLine();
+            var data = duomenys.Split(' ');
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(path, true))
+            {
+                writer.WriteLine(data[0] + ";" + data[1] + ";" + data[2] + ";" + data[3]);
+            }
         }
     }
 }
