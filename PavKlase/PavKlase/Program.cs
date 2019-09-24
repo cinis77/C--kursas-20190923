@@ -96,6 +96,7 @@ namespace PavKlase
             foreach (var item in telefonai)
             {
                 item.SuteiktiNumeri(355521);
+                Console.WriteLine(telefonai.Count);
             }
         }
     }
