@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parduotuve", "Parduotuve\Parduotuve.csproj", "{E8AD164E-E621-423D-8A7C-FE8C517E446D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8AD164E-E621-423D-8A7C-FE8C517E446D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8AD164E-E621-423D-8A7C-FE8C517E446D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8AD164E-E621-423D-8A7C-FE8C517E446D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8AD164E-E621-423D-8A7C-FE8C517E446D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BC24622-C7D2-4FC4-B3A7-5A81755CA0DF}
+	EndGlobalSection
+EndGlobal
