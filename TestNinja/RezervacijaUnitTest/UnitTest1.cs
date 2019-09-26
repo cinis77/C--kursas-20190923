@@ -51,4 +51,32 @@ namespace RezervacijaUnitTest
             rezervacija.KazkasNetinka();
         }
     }
+
+    [TestClass]
+    public class DuomenuParuosaUnitTest
+    {
+        [TestMethod]
+        public void AutomatinisDuomenuPersiuntimias_Darbas_Tikiuosi()
+        {
+            DuomenuParuosa paruosa = new DuomenuParuosa(new FakeKomunikacija());
+        }
+    }
+
+    internal class FakeKomunikacija : Komunikacija
+    {
+        public void Connect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Receive()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Send()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

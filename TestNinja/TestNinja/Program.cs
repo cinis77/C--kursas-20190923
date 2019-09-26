@@ -6,6 +6,31 @@ using System.Threading.Tasks;
 
 namespace TestNinja
 {
+    public interface Komunikacija
+    {
+        void Connect();
+
+        void Send();
+
+        void Receive();
+    }
+
+    public class DuomenuParuosa
+    {
+        private Komunikacija Communication;
+
+        public DuomenuParuosa(Komunikacija komunikacija)
+        {
+            Communication = komunikacija;
+        }
+
+        public void AutomatinisDuomenuPersiuntimas()
+        {
+            //Extra darbus
+            Communication.Send();
+        }
+    }
+
     public class User
     {
         public bool IsAdmin { get; set; }
