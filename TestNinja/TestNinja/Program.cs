@@ -35,6 +35,11 @@ namespace TestNinja
                 return false;
             }
         }
+
+        public void KazkasNetinka()
+        {
+            throw new FormatException();
+        }
     }
 
     internal class Program

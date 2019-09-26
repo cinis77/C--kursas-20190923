@@ -41,5 +41,14 @@ namespace RezervacijaUnitTest
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void KazkasNeTaip_ExpectedException()
+        {
+            Rezervacija rezervacija = new Rezervacija();
+
+            rezervacija.KazkasNetinka();
+        }
     }
 }
