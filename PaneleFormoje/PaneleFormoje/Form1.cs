@@ -29,7 +29,7 @@ namespace PaneleFormoje
             Action<int, int> veiksmai = form.Suma;
             veiksmai += form.Skirtumas;
 
-            Form2 forom = new Form2(veiksmai);
+            Form2 forom = new Form2(form.Suma);
             forom.TopLevel = false;
             forom.Dock = DockStyle.Fill;
             forom.FormBorderStyle = FormBorderStyle.None;

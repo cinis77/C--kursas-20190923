@@ -23,7 +23,10 @@ namespace PaneleFormoje
         private void Mygtukas_Click(object sender, EventArgs e)
         {
             //Suskaiciuoti atsakyma ir isvesti ji from3
-            Veiksmas(int.Parse(Tekstas1.Text), int.Parse(Tekstas2.Text));
+            // Veiksmas(int.Parse(Tekstas1.Text), int.Parse(Tekstas2.Text));
+            Form3 form = new Form3();
+            form.Suma(int.Parse(Tekstas1.Text), int.Parse(Tekstas2.Text));
+            form.Show();
         }
     }
 }
