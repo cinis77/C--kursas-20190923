@@ -31,6 +31,7 @@ namespace Timer
                 if (item is Label)
                 {
                     Label toUse = (Label)item;
+
                     toUse.Text = DateTime.Today.TimeOfDay.ToString();
                 }
             }
