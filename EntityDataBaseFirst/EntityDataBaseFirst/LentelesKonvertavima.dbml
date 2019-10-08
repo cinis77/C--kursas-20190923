@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataBase" Class="LentelesKonvertavimaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DataBase.mdf;Integrated Security=True" SettingsObjectName="EntityDataBaseFirst.Properties.Settings" SettingsPropertyName="DataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TestInformation" Member="TestInformations">
+    <Type Name="TestInformation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RunSeq" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SensNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TestTemp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supply" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Exposure" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="data" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Laikas" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="AirTemp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Humidity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Operator" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TestInformation_TestSetup" Member="TestSetups" ThisKey="Id" OtherKey="TestInformationID" Type="TestSetup" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestSetup" Member="TestSetups">
+    <Type Name="TestSetup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="A" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="B" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="C" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="D" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="E" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaxSupply" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinSupply" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="I" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ErrorMIN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ErrorMax" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ErrorMInA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ErrorMaxA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RejectCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestInformationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TestInformation_TestSetup" Member="TestInformation" ThisKey="TestInformationID" OtherKey="Id" Type="TestInformation" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

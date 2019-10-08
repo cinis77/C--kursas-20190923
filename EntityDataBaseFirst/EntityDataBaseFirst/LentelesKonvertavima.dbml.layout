@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LentelesKonvertavima">
+  <DataContextMoniker Name="/LentelesKonvertavimaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fc8424a8-7c4b-4226-acd1-2aca7a0149c0" absoluteBounds="1.25, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LentelesKonvertavimaDataContext/TestInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d78d17df-39dc-4155-ba82-9a310fe9c3c0" absoluteBounds="1.2649999999999997, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ebca3a2-ef13-452a-988c-92a664b82f52" absoluteBounds="7.125, 1.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LentelesKonvertavimaDataContext/TestSetup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d8113f0-a078-4e3d-9bec-b7baa3d8004e" absoluteBounds="7.1400000000000006, 1.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 2.68350341796875); (7.125 : 2.68350341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LentelesKonvertavimaDataContext/TestInformation/TestInformation_TestSetup" />
+      <nodes>
+        <classShapeMoniker Id="fc8424a8-7c4b-4226-acd1-2aca7a0149c0" />
+        <classShapeMoniker Id="6ebca3a2-ef13-452a-988c-92a664b82f52" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
