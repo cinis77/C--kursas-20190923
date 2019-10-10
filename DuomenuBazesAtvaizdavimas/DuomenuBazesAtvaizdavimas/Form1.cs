@@ -24,8 +24,8 @@ namespace DuomenuBazesAtvaizdavimas
             Load += FormLoading;
             paneles = new List<Panel>();
             PictureBoxContainer = new List<PictureBox>();
-            BackColor = Color.White;
-            AutoScroll = true;
+            MainPanel.BackColor = Color.White;
+            MainPanel.AutoScroll = true;
         }
 
         private void FormLoading(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace DuomenuBazesAtvaizdavimas
             }
             else
             {
-                if (paneles.Last().Location.X + paneles.Last().Width > Width)
+                if (paneles.Last().Location.X + paneles.Last().Width > MainPanel.Width)
                 {
                     panel.Location = new Point(10, paneles.Last().Location.Y + 200 + 10);
                 }
@@ -74,13 +74,13 @@ namespace DuomenuBazesAtvaizdavimas
             panel.Name = ID.ToString();
             panel.DoubleClick += DoubleClickPanel;
             panel.Controls.Add(label);
-            Controls.Add(panel);
+            MainPanel.Controls.Add(panel);
             paneles.Add(panel);
         }
 
         private void DoubleClickPanel(object sender, EventArgs e)
         {
-            Controls.Clear();
+            MainPanel.Controls.Clear();
             Control control = (Control)sender;
             DataContext db = new DataContext(ConnectionString);
             var table = db.GetTable<Uzsakymai>().Where(x => x.Id == int.Parse(control.Name)).First();
@@ -123,7 +123,7 @@ namespace DuomenuBazesAtvaizdavimas
             }
             else
             {
-                if (PictureBoxContainer.Last().Location.X + PictureBoxContainer.Last().Width > Width)
+                if (PictureBoxContainer.Last().Location.X + PictureBoxContainer.Last().Width > MainPanel.Width)
                 {
                     addPic.Location = new Point(10, PictureBoxContainer.Last().Location.Y + 200 + 10);
                 }
@@ -134,7 +134,7 @@ namespace DuomenuBazesAtvaizdavimas
                         PictureBoxContainer.Last().Location.Y);
                 }
             }
-            Controls.Add(addPic);
+            MainPanel.Controls.Add(addPic);
             PictureBoxContainer.Add(addPic);
         }
 
