@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.75" name="GenerateClass">
+  <DataContextMoniker Name="/GenerateClassDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0d1268b5-4805-4bf5-a112-fab9d18f51f6" absoluteBounds="0.875, 1.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/GenerateClassDataContext/Uzsakymai" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4e8420d-f914-4459-b725-9cd77015bc80" absoluteBounds="0.89, 2.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bec079d2-4a72-4093-9562-ed12a113d092" absoluteBounds="4.625, 1.375, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/GenerateClassDataContext/Sheet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d068a8b8-78d6-4cfa-a03b-1fc70393bd50" absoluteBounds="4.64, 1.835, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 2.79890055338542); (4.625 : 2.79890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GenerateClassDataContext/Uzsakymai/Uzsakymai_Sheet" />
+      <nodes>
+        <classShapeMoniker Id="0d1268b5-4805-4bf5-a112-fab9d18f51f6" />
+        <classShapeMoniker Id="bec079d2-4a72-4093-9562-ed12a113d092" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c7a70994-32b7-4cd0-83fa-c15dcfa9cbcf" absoluteBounds="8.375, 1.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/GenerateClassDataContext/LINESQL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2294b31-acaf-4234-bf84-481e63ed2b29" absoluteBounds="8.39, 2.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70b4abc9-4ed9-4bce-bd25-0750597ba297" absoluteBounds="7.875, 5.75, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/GenerateClassDataContext/DrawingInDB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95430672-a360-44c7-ad7e-ca20b2570764" absoluteBounds="7.89, 6.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.125 : 5.75); (9.125 : 3.97280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GenerateClassDataContext/DrawingInDB/DrawingInDB_LINESQL" />
+      <nodes>
+        <classShapeMoniker Id="70b4abc9-4ed9-4bce-bd25-0750597ba297" />
+        <classShapeMoniker Id="c7a70994-32b7-4cd0-83fa-c15dcfa9cbcf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.625 : 4.87660970052083); (5.625 : 7.59695556640625); (7.875 : 7.59695556640625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GenerateClassDataContext/Sheet/Sheet_DrawingInDB" />
+      <nodes>
+        <classShapeMoniker Id="bec079d2-4a72-4093-9562-ed12a113d092" />
+        <classShapeMoniker Id="70b4abc9-4ed9-4bce-bd25-0750597ba297" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RobotDataBase" Class="GenerateClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\RobotDataBase.mdf;Integrated Security=True" SettingsObjectName="DuomenuBazesAtvaizdavimas.Properties.Settings" SettingsPropertyName="RobotDataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Uzsakymai" Member="Uzsakymais">
+    <Type Name="Uzsakymai">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AmountDone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Uzsakymai_Sheet" Member="Sheets" ThisKey="Id" OtherKey="UzsakymoID" Type="Sheet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sheet" Member="Sheets">
+    <Type Name="Sheet">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UzsakymoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsedArea" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="FreeArea" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MicroJoint" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LengthToMicroJoint" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SheetName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DoneAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Sheet_DrawingInDB" Member="DrawingInDBs" ThisKey="Id" OtherKey="SheetId" Type="DrawingInDB" />
+      <Association Name="Uzsakymai_Sheet" Member="Uzsakymai" ThisKey="UzsakymoID" OtherKey="Id" Type="Uzsakymai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LINESQL" Member="LINESQLs">
+    <Type Name="LINESQL">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DrawingIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartX" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="StartY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="EndX" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="EndY" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Layer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AddMicroJoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="DrawingInDB_LINESQL" Member="DrawingInDB" ThisKey="DrawingIndex" OtherKey="Id" Type="DrawingInDB" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DrawingInDB" Member="DrawingInDBs">
+    <Type Name="DrawingInDB">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SheetId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PositionX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PositionY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Width" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Height" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaFilled" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UzsakymoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Package" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MainItem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TrueName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameOfDrawing" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DrawingInDB_LINESQL" Member="LINESQLs" ThisKey="Id" OtherKey="DrawingIndex" Type="LINESQL" />
+      <Association Name="Sheet_DrawingInDB" Member="Sheet" ThisKey="SheetId" OtherKey="Id" Type="Sheet" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
