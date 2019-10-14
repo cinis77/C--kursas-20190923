@@ -8,5 +8,31 @@
         <elementListCompartment Id="e4b66508-769d-498c-b67f-c3ee7856d020" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="6944a3aa-9a2a-4a76-8e4e-370086eb8158" absoluteBounds="4.875, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DuomenysDataContext/Lektuva" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ddd0dac-09f5-40b9-a5e3-45acdbd21e4a" absoluteBounds="4.89, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1052a57e-31d0-4292-a2e1-8b166df350d5" absoluteBounds="2.875, 4.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DuomenysDataContext/Vieta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bba6004-df5e-4108-9f30-81cb712808e4" absoluteBounds="2.89, 4.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.90625 : 2.64589680989583); (5.90625 : 5.10659912109375); (4.875 : 5.10659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DuomenysDataContext/Lektuva/Lektuva_Vieta" />
+      <nodes>
+        <classShapeMoniker Id="6944a3aa-9a2a-4a76-8e4e-370086eb8158" />
+        <classShapeMoniker Id="1052a57e-31d0-4292-a2e1-8b166df350d5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.625 : 2.27089680989583); (1.625 : 5.10659912109375); (2.875 : 5.10659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DuomenysDataContext/User/User_Vieta" />
+      <nodes>
+        <classShapeMoniker Id="aee707c4-5df2-49d3-8ca9-6dfb0e7b91e2" />
+        <classShapeMoniker Id="1052a57e-31d0-4292-a2e1-8b166df350d5" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

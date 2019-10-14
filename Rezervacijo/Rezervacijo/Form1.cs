@@ -37,7 +37,9 @@ namespace Rezervacijo
             }
             else
             {
-                MessageBox.Show("Prisijungti pavyko");
+                RezervacijosForma form = new RezervacijosForma(connection, user.First().Id);
+                form.Show();
+                WindowState = FormWindowState.Minimized;
             }
         }
     }

@@ -33,6 +33,12 @@ namespace Rezervacijo
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertLektuva(Lektuva instance);
+    partial void UpdateLektuva(Lektuva instance);
+    partial void DeleteLektuva(Lektuva instance);
+    partial void InsertVieta(Vieta instance);
+    partial void UpdateVieta(Vieta instance);
+    partial void DeleteVieta(Vieta instance);
     #endregion
 		
 		public DuomenysDataContext() : 
@@ -72,6 +78,22 @@ namespace Rezervacijo
 				return this.GetTable<User>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Lektuva> Lektuvas
+		{
+			get
+			{
+				return this.GetTable<Lektuva>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vieta> Vietas
+		{
+			get
+			{
+				return this.GetTable<Vieta>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
@@ -89,6 +111,8 @@ namespace Rezervacijo
 		private string _UserName;
 		
 		private string _Password;
+		
+		private EntitySet<Vieta> _Vietas;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -108,6 +132,7 @@ namespace Rezervacijo
 		
 		public User()
 		{
+			this._Vietas = new EntitySet<Vieta>(new Action<Vieta>(this.attach_Vietas), new Action<Vieta>(this.detach_Vietas));
 			OnCreated();
 		}
 		
@@ -207,6 +232,481 @@ namespace Rezervacijo
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Vieta", Storage="_Vietas", ThisKey="Id", OtherKey="UserID")]
+		public EntitySet<Vieta> Vietas
+		{
+			get
+			{
+				return this._Vietas;
+			}
+			set
+			{
+				this._Vietas.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Vietas(Vieta entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Vietas(Vieta entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lektuvas")]
+	public partial class Lektuva : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.DateTime _Isvykimas;
+		
+		private string _AtvykimoVieta;
+		
+		private int _PirmosKlasesVietuSkaicius;
+		
+		private int _AntrosKlasesVietuSkaicius;
+		
+		private EntitySet<Vieta> _Vietas;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnIsvykimasChanging(System.DateTime value);
+    partial void OnIsvykimasChanged();
+    partial void OnAtvykimoVietaChanging(string value);
+    partial void OnAtvykimoVietaChanged();
+    partial void OnPirmosKlasesVietuSkaiciusChanging(int value);
+    partial void OnPirmosKlasesVietuSkaiciusChanged();
+    partial void OnAntrosKlasesVietuSkaiciusChanging(int value);
+    partial void OnAntrosKlasesVietuSkaiciusChanged();
+    #endregion
+		
+		public Lektuva()
+		{
+			this._Vietas = new EntitySet<Vieta>(new Action<Vieta>(this.attach_Vietas), new Action<Vieta>(this.detach_Vietas));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Isvykimas", DbType="DateTime NOT NULL")]
+		public System.DateTime Isvykimas
+		{
+			get
+			{
+				return this._Isvykimas;
+			}
+			set
+			{
+				if ((this._Isvykimas != value))
+				{
+					this.OnIsvykimasChanging(value);
+					this.SendPropertyChanging();
+					this._Isvykimas = value;
+					this.SendPropertyChanged("Isvykimas");
+					this.OnIsvykimasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AtvykimoVieta", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string AtvykimoVieta
+		{
+			get
+			{
+				return this._AtvykimoVieta;
+			}
+			set
+			{
+				if ((this._AtvykimoVieta != value))
+				{
+					this.OnAtvykimoVietaChanging(value);
+					this.SendPropertyChanging();
+					this._AtvykimoVieta = value;
+					this.SendPropertyChanged("AtvykimoVieta");
+					this.OnAtvykimoVietaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PirmosKlasesVietuSkaicius", DbType="Int NOT NULL")]
+		public int PirmosKlasesVietuSkaicius
+		{
+			get
+			{
+				return this._PirmosKlasesVietuSkaicius;
+			}
+			set
+			{
+				if ((this._PirmosKlasesVietuSkaicius != value))
+				{
+					this.OnPirmosKlasesVietuSkaiciusChanging(value);
+					this.SendPropertyChanging();
+					this._PirmosKlasesVietuSkaicius = value;
+					this.SendPropertyChanged("PirmosKlasesVietuSkaicius");
+					this.OnPirmosKlasesVietuSkaiciusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AntrosKlasesVietuSkaicius", DbType="Int NOT NULL")]
+		public int AntrosKlasesVietuSkaicius
+		{
+			get
+			{
+				return this._AntrosKlasesVietuSkaicius;
+			}
+			set
+			{
+				if ((this._AntrosKlasesVietuSkaicius != value))
+				{
+					this.OnAntrosKlasesVietuSkaiciusChanging(value);
+					this.SendPropertyChanging();
+					this._AntrosKlasesVietuSkaicius = value;
+					this.SendPropertyChanged("AntrosKlasesVietuSkaicius");
+					this.OnAntrosKlasesVietuSkaiciusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lektuva_Vieta", Storage="_Vietas", ThisKey="Id", OtherKey="PlaneID")]
+		public EntitySet<Vieta> Vietas
+		{
+			get
+			{
+				return this._Vietas;
+			}
+			set
+			{
+				this._Vietas.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Vietas(Vieta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lektuva = this;
+		}
+		
+		private void detach_Vietas(Vieta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lektuva = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vieta")]
+	public partial class Vieta : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private bool _firstclass;
+		
+		private System.Nullable<int> _eile;
+		
+		private System.Nullable<int> _number;
+		
+		private int _UserID;
+		
+		private int _PlaneID;
+		
+		private EntityRef<Lektuva> _Lektuva;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnfirstclassChanging(bool value);
+    partial void OnfirstclassChanged();
+    partial void OneileChanging(System.Nullable<int> value);
+    partial void OneileChanged();
+    partial void OnnumberChanging(System.Nullable<int> value);
+    partial void OnnumberChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnPlaneIDChanging(int value);
+    partial void OnPlaneIDChanged();
+    #endregion
+		
+		public Vieta()
+		{
+			this._Lektuva = default(EntityRef<Lektuva>);
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstclass", DbType="Bit NOT NULL")]
+		public bool firstclass
+		{
+			get
+			{
+				return this._firstclass;
+			}
+			set
+			{
+				if ((this._firstclass != value))
+				{
+					this.OnfirstclassChanging(value);
+					this.SendPropertyChanging();
+					this._firstclass = value;
+					this.SendPropertyChanged("firstclass");
+					this.OnfirstclassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eile", DbType="Int")]
+		public System.Nullable<int> eile
+		{
+			get
+			{
+				return this._eile;
+			}
+			set
+			{
+				if ((this._eile != value))
+				{
+					this.OneileChanging(value);
+					this.SendPropertyChanging();
+					this._eile = value;
+					this.SendPropertyChanged("eile");
+					this.OneileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_number", DbType="Int")]
+		public System.Nullable<int> number
+		{
+			get
+			{
+				return this._number;
+			}
+			set
+			{
+				if ((this._number != value))
+				{
+					this.OnnumberChanging(value);
+					this.SendPropertyChanging();
+					this._number = value;
+					this.SendPropertyChanged("number");
+					this.OnnumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlaneID", DbType="Int NOT NULL")]
+		public int PlaneID
+		{
+			get
+			{
+				return this._PlaneID;
+			}
+			set
+			{
+				if ((this._PlaneID != value))
+				{
+					if (this._Lektuva.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPlaneIDChanging(value);
+					this.SendPropertyChanging();
+					this._PlaneID = value;
+					this.SendPropertyChanged("PlaneID");
+					this.OnPlaneIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lektuva_Vieta", Storage="_Lektuva", ThisKey="PlaneID", OtherKey="Id", IsForeignKey=true)]
+		public Lektuva Lektuva
+		{
+			get
+			{
+				return this._Lektuva.Entity;
+			}
+			set
+			{
+				Lektuva previousValue = this._Lektuva.Entity;
+				if (((previousValue != value) 
+							|| (this._Lektuva.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Lektuva.Entity = null;
+						previousValue.Vietas.Remove(this);
+					}
+					this._Lektuva.Entity = value;
+					if ((value != null))
+					{
+						value.Vietas.Add(this);
+						this._PlaneID = value.Id;
+					}
+					else
+					{
+						this._PlaneID = default(int);
+					}
+					this.SendPropertyChanged("Lektuva");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Vieta", Storage="_User", ThisKey="UserID", OtherKey="Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Vietas.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Vietas.Add(this);
+						this._UserID = value.Id;
+					}
+					else
+					{
+						this._UserID = default(int);
+					}
+					this.SendPropertyChanged("User");
 				}
 			}
 		}

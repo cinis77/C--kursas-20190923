@@ -7,6 +7,29 @@
       <Column Name="Pavarde" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Vieta" Member="Vietas" ThisKey="Id" OtherKey="UserID" Type="Vieta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lektuvas" Member="Lektuvas">
+    <Type Name="Lektuva">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Isvykimas" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AtvykimoVieta" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PirmosKlasesVietuSkaicius" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AntrosKlasesVietuSkaicius" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Lektuva_Vieta" Member="Vietas" ThisKey="Id" OtherKey="PlaneID" Type="Vieta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vieta" Member="Vietas">
+    <Type Name="Vieta">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstclass" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="eile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="number" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlaneID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Lektuva_Vieta" Member="Lektuva" ThisKey="PlaneID" OtherKey="Id" Type="Lektuva" IsForeignKey="true" />
+      <Association Name="User_Vieta" Member="User" ThisKey="UserID" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
