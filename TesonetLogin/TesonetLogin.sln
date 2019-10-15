@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesonetLogin", "TesonetLogin\TesonetLogin.csproj", "{717050A9-E5D4-431D-BB44-ABD6EF88AFBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{717050A9-E5D4-431D-BB44-ABD6EF88AFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{717050A9-E5D4-431D-BB44-ABD6EF88AFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{717050A9-E5D4-431D-BB44-ABD6EF88AFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{717050A9-E5D4-431D-BB44-ABD6EF88AFBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13EF6F64-E830-4DF5-9FF6-E88A0382B7D7}
+	EndGlobalSection
+EndGlobal
